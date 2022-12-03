@@ -1,10 +1,10 @@
 <!-- 用户管理 -->
 <script setup lang="ts">
-import { User } from "types/User";
+import { User } from "types/user";
 import { useDataTable } from "@/hooks/useDataTable";
 import { setupUserAttributes } from "./design";
 
-const userUrl = "/user";
+const userUrl = "/users";
 const { userColumns } = setupUserAttributes();
 
 const {

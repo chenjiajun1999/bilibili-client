@@ -9,6 +9,11 @@ export interface User {
 	create_time?: string;
 }
 
+export interface DataTable<T> {
+	array: T[];
+	total: number;
+}
+
 let data: User[] = [];
 const total = 50;
 for (let i = 1; i <= total; i++) {
@@ -25,7 +30,7 @@ for (let i = 1; i <= total; i++) {
 
 export default [
 	{
-		url: "/dev-api/user",
+		url: "/dev-api/users",
 		method: "get",
 		response: params => {
 			let query = JSON.stringify(params.query);
@@ -33,11 +38,13 @@ export default [
 			let subData = data.slice((pageNum - 1) * pageSize, pageNum * pageSize);
 
 			return {
-				code: 200,
-				message: "请求成功",
-				status: "success",
-				data: subData,
-				total: total
+				success: true,
+				errCode: null,
+				errMessage: null,
+				data: {
+					array: subData,
+					total: total
+				}
 			};
 		}
 	}

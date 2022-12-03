@@ -21,10 +21,10 @@ export default ({ mode }) => {
 		server: {
 			proxy: {
 				[loadEnv(mode, process.cwd()).VITE_APP_BASE_API]: {
-					target: "http://localhost:6000/",
+					target: "http://localhost:4782/",
 					changeOrigin: true,
 					//rewrite: path => path.replace(/^\/api/, '')
-					rewrite: path => path.replace(new RegExp("^" + loadEnv(mode, process.cwd()).VITE_APP_BASE_API), "/bilibli-server")
+					rewrite: path => path.replace(new RegExp("^" + loadEnv(mode, process.cwd()).VITE_APP_BASE_API), "/bilibili-api")
 				}
 			}
 		},

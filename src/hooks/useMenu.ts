@@ -1,4 +1,4 @@
-import { Menu, M } from "types/Menu";
+import { Menu, M } from "types/menu";
 import { useStorage } from "@vueuse/core";
 import { C } from "@/constants";
 import router from "@/router";

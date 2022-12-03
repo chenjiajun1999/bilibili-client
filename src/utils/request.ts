@@ -37,13 +37,6 @@ const tansParams = (params?: any) => {
 	return result;
 };
 
-const errorCode = new Map([
-	[401, "认证失败，无法访问系统资源"],
-	[403, "当前操作没有权限"],
-	[404, "访问资源不存在"],
-	[0, "系统未知错误，请反馈给管理员"]
-]);
-
 // 添加请求拦截器
 service.interceptors.request.use(
 	config => {
@@ -51,7 +44,7 @@ service.interceptors.request.use(
 			throw new Error(`Expected 'config' and 'config.headers' not to be undefined`);
 		}
 
-		config.headers["Authorization"] = "Bearer " + getToken();
+		config.headers["Authorization"] = getToken()!;
 		//get请求映射params参数
 		if (config.method === "get" && config.params) {
 			let url = config.url + "?" + tansParams(config.params);
@@ -68,30 +61,33 @@ service.interceptors.request.use(
 	}
 );
 
+const errCode = [
+	"B_TOKEN_ERROR",
+	"B_TOKEN_NOT_EXIT",
+	"B_TOKEN_INVALID",
+	"B_TOKEN_EXPIRE",
+	"B_TOKEN_IS_REPLACED",
+	"B_TOKEN_IS_BANNED"
+];
+const errCodeSet = new Set(errCode);
 // 添加响应拦截器
 service.interceptors.response.use(
 	res => {
-		// 未设置状态码则默认成功状态
-		const code = res.data.code || 200;
-		// 获取错误信息
-		const msg = errorCode.get(code) || res.data.msg || errorCode.get(0);
+		const success = res.data.success;
+		const errCode = res.data.errCode;
+		const errMessage = res.data.errMessage;
 		// 二进制数据则直接返回
 		if (res.request.responseType === "blob" || res.request.responseType === "arraybuffer") {
 			return res.data;
 		}
-		if (code === 401) {
-			ElMessage({
-				message: "无效的会话，或者会话已过期，请重新登录。",
-				type: "error",
-				duration: 2000
-			});
-			return Promise.reject("无效的会话，或者会话已过期，请重新登录。");
-		} else if (code === 500) {
-			return Promise.reject(new Error(msg));
-		} else if (code !== 200) {
-			return Promise.reject("error");
-		} else {
+
+		if (success == true) {
 			return res.data;
+		} else if (errCodeSet.has(errCode)) {
+			ElMessage.error("无效的会话，或者会话已过期，请重新登录。");
+			return Promise.reject("无效的会话，或者会话已过期，请重新登录。");
+		} else {
+			return Promise.reject(new Error(errCode, errMessage));
 		}
 	},
 	error => {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useTab } from "@/hooks/useTab";
-import { M } from "types/Menu";
+import { M } from "types/menu";
 const {} = useTab();
 </script>
 

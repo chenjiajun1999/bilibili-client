@@ -1,5 +1,5 @@
-import { CTableColumn } from "types/Table";
-import { User } from "types/User";
+import { CTableColumn } from "types/table";
+import { User } from "types/user";
 
 export const setupUserAttributes = () => {
 	const userColumns = computed<CTableColumn<User>[]>(() => {

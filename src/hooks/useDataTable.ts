@@ -1,5 +1,5 @@
 import request from "@/utils/request";
-import { AjaxResult } from "types/AjaxResult";
+import { Response, DataTable } from "types/response";
 
 class DataTableFactory<T, U> {
 	dataSource = ref<T[]>([]);
@@ -51,8 +51,8 @@ export function useDataTable<T, U = any>(url: string) {
 			method: "get",
 			params: params
 		}).then(res => {
-			dataSource.value = res.data;
-			pagination.value.total = (res as unknown as AjaxResult<T>).total!;
+			dataSource.value = res.data.array;
+			pagination.value.total = (res as unknown as Response<DataTable<T>>).data!.total;
 			loading.value = false;
 		});
 	};

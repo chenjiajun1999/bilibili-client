@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Menu } from "types/Menu";
+import { Menu } from "types/menu";
 import { PropType } from "vue";
 import { useScreenPixel } from "@/hooks/useScreenPixel";
 import { useMenu } from "@/hooks/useMenu";
