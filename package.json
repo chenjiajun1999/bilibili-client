@@ -1,0 +1,89 @@
+{
+	"name": "bilibili-client",
+	"private": true,
+	"version": "0.0.0",
+	"author": "chenjiajun",
+	"type": "commonjs",
+	"description": "基于 Vue3.2 的仿 bilibili 弹幕网开发。",
+	"main": ".eslintrc.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/chenjiajun1999/bilibili-client.git"
+	},
+	"keywords": [],
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/chenjiajun1999/bilibili-client/issues"
+	},
+	"homepage": "https://github.com/chenjiajun1999/bilibili-client#readme",
+	"scripts": {
+		"dev": "vite",
+		"build": "vue-tsc --noEmit && vite build",
+		"preview": "vite preview",
+		"prepare": "husky install"
+	},
+	"dependencies": {
+		"@vueuse/core": "^9.1.0",
+		"axios": "^0.27.2",
+		"element-plus": "^2.2.13",
+		"js-cookie": "^3.0.1",
+		"mockjs": "^1.1.0",
+		"pinia": "^2.0.18",
+		"qs": "^6.11.0",
+		"vite-plugin-mock": "^2.9.6",
+		"vue": "^3.2.37",
+		"vue-router": "^4.1.3"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^17.0.3",
+		"@commitlint/config-conventional": "^17.0.3",
+		"@iconify-json/mdi": "^1.1.30",
+		"@types/js-cookie": "^3.0.2",
+		"@types/qs": "^6.9.7",
+		"@typescript-eslint/eslint-plugin": "^5.33.0",
+		"@typescript-eslint/parser": "^5.33.0",
+		"@vitejs/plugin-vue": "^3.0.3",
+		"autoprefixer": "^10.4.8",
+		"commitizen": "^4.2.5",
+		"cz-git": "^1.3.10",
+		"eslint": "^8.22.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-vue": "^9.3.0",
+		"husky": "^8.0.1",
+		"lint-staged": "^13.0.3",
+		"postcss": "^8.4.16",
+		"postcss-html": "^1.5.0",
+		"sass": "^1.54.4",
+		"stylelint": "^14.10.0",
+		"stylelint-config-html": "^1.1.0",
+		"stylelint-config-prettier": "^9.0.3",
+		"stylelint-config-recess-order": "^3.0.0",
+		"stylelint-config-recommended-scss": "^7.0.0",
+		"stylelint-config-recommended-vue": "^1.4.0",
+		"stylelint-config-standard": "^27.0.0",
+		"stylelint-config-standard-scss": "^5.0.0",
+		"tailwindcss": "^3.1.8",
+		"typescript": "^4.6.4",
+		"unplugin-auto-import": "^0.11.1",
+		"unplugin-icons": "^0.14.8",
+		"unplugin-vue-components": "^0.22.4",
+		"vite": "^3.0.7",
+		"vue-tsc": "^0.39.5"
+	},
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-git"
+		}
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js,jsx,vue,ts,tsx}": [
+			"prettier --write"
+		]
+	}
+}
