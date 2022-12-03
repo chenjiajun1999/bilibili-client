@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getToken } from "@/utils/cookies";
-import { ElMessage } from "element-plus";
+import { useMessage } from "@/hooks/useMessage";
 
 // 创建axios
 const service = axios.create({
@@ -84,7 +84,7 @@ service.interceptors.response.use(
 		if (success == true) {
 			return res.data;
 		} else if (errCodeSet.has(errCode)) {
-			ElMessage.error("无效的会话，或者会话已过期，请重新登录。");
+			useMessage("error", "无效的会话，或者会话已过期，请重新登录。");
 			return Promise.reject("无效的会话，或者会话已过期，请重新登录。");
 		} else {
 			return Promise.reject(new Error(errCode, errMessage));

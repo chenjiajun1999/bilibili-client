@@ -4,6 +4,7 @@ import router from "@/router";
 import { createPinia } from "pinia";
 import "tailwindcss/tailwind.css";
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
+import "@/style/base.scss";
 
 const app = createApp(App);
 const store = createPinia();
