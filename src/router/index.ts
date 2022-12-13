@@ -31,13 +31,13 @@ const routes: Array<RouteRecordRaw> = [
 				path: "role",
 				name: "role",
 				meta: { menu: { title: "角色管理" } },
-				component: () => import("@/views/system/RolePage.vue")
+				component: () => import("@/views/system/role/index.vue")
 			},
 			{
 				path: "auth",
 				name: "auth",
 				meta: { menu: { title: "权限管理" } },
-				component: () => import("@/views/system/AuthPage.vue")
+				component: () => import("@/views/system/auth/index.vue")
 			}
 		]
 	},
@@ -48,17 +48,23 @@ const routes: Array<RouteRecordRaw> = [
 		meta: { auth: true, menu: { title: "常用组件", icon: "EditPen" } },
 		children: [
 			{
-				name: "other",
-				path: "other",
-				component: () => import("@/views/design/OtherPage.vue"),
-				meta: { menu: { title: "其他" } }
+				name: "video",
+				path: "video",
+				component: () => import("@/views/design/video/index.vue"),
+				meta: { menu: { title: "视频播放" } }
+			},
+			{
+				name: "upload",
+				path: "upload",
+				component: () => import("@/views/design/upload/index.vue"),
+				meta: { menu: { title: "视频上传" } }
 			}
 		]
 	},
 	{
 		path: "/login",
 		name: "login",
-		component: () => import("@/views/auth/LoginPage.vue")
+		component: () => import("@/views/login/index.vue")
 	}
 ];
 
