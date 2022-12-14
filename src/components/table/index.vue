@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { CTableColumn } from "types/table";
-import { useTable } from "./useTable.js";
+import { useTable } from "./useTable";
 import TableHead from "./TableHead.vue";
 
 interface Props {

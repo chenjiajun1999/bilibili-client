@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { useFullScreen } from "@/hooks/useFullScreen";
-
-const { isFullScreen, fullScreen } = useFullScreen();
+import { useFullscreen } from "@vueuse/core";
+const { toggle, isFullscreen } = useFullscreen();
 </script>
 
 <template>
-	<i-mdi-fullscreen v-show="!isFullScreen" class="fullscreen" style="font-size: 1.6em" @click="() => fullScreen()" />
-	<i-mdi-fullscreen-exit v-show="isFullScreen" class="fullscreen" style="font-size: 1.6em" @click="() => fullScreen()" />
+	<i-mdi-fullscreen v-show="!isFullscreen" class="fullscreen" style="font-size: 1.6em" @click="() => toggle()" />
+	<i-mdi-fullscreen-exit v-show="isFullscreen" class="fullscreen" style="font-size: 1.6em" @click="() => toggle()" />
 </template>
 
 <style lang="scss" scoped>
