@@ -1,3 +1,21 @@
+/* 隐藏 el-memu 滚轮 */
+::-webkit-scrollbar {
+	display: none;
+}
+
+/* 修复火狐浏览器的滚轮样式问题 */
+* {
+	scrollbar-width: none;
+}
+input {
+	outline: none;
+}
+.el-main {
+	padding: 0 !important;
+}
 .message-box-custom-class {
-    min-width: 350px !important;
+	min-width: 350px !important;
+}
+.el-popover.el-popper {
+	background: var(--el-bg-color-overlay) !important;
 }
