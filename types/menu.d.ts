@@ -2,6 +2,7 @@ import { RouteMeta } from "vue-router";
 interface IMenu {
 	title?: string;
 	icon?: string;
+	priority?: number;
 	isClick?: boolean;
 	route?: string;
 	path?: string;

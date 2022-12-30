@@ -6,6 +6,7 @@ import { RouteLocationNormalizedLoaded, RouteRecordNormalized } from "vue-router
 
 const menus = ref<Menu[]>([]);
 const close = useStorage<boolean>(C.MENU_CLOSE_STATE, false);
+// 根据路由元数据构建菜单列表
 const getMenuByRoute = () => {
 	return router
 		.getRoutes()
@@ -15,8 +16,12 @@ const getMenuByRoute = () => {
 			menu.children = filterNestedMenu(route.children);
 			return menu;
 		})
-		.filter(menu => menu.children?.length) as Menu[];
+		.filter(menu => menu.children?.length)
+		.sort((a, b) => {
+			return (a.priority || 0) - (b.priority || 0);
+		}) as Menu[];
 };
+// 组装嵌套菜单对象
 const filterNestedMenu = (children: RouteRecordNormalized["children"]): Menu[] => {
 	return children
 		.filter(route => route.meta?.menu)
@@ -32,6 +37,7 @@ const filterNestedMenu = (children: RouteRecordNormalized["children"]): Menu[] =
 menus.value = getMenuByRoute();
 
 export const useMenu = () => {
+	// 获取嵌套路由的面包屑
 	const getNestedMenuByRoute = (m: Menu, routerMap: Map<string, string>, title = "") => {
 		m.children?.forEach(c => {
 			title !== "" ? (title = `${title}-${c.title}`) : (title = `${m.title}-${c.title}`);
