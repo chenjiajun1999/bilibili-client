@@ -23,11 +23,15 @@
 		"prepare": "husky install"
 	},
 	"dependencies": {
+		"@nplayer/danmaku": "^1.0.12",
+		"@nplayer/vue": "^1.0.12",
 		"@vueuse/core": "^9.1.0",
 		"axios": "^0.27.2",
 		"element-plus": "^2.2.13",
+		"hls.js": "^1.2.9",
 		"js-cookie": "^3.0.1",
 		"mockjs": "^1.1.0",
+		"nplayer": "^1.0.15",
 		"pinia": "^2.0.18",
 		"qs": "^6.11.0",
 		"vite-plugin-mock": "^2.9.6",
