@@ -18,7 +18,7 @@ const danmakuOptions = {
 	autoInsert: true,
 	items: props.bullets
 };
-let player: Player = null as unknown as Player;
+let player: Player;
 function setPlayer(p: Player) {
 	player = p;
 }

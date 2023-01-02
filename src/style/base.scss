@@ -1,7 +1,11 @@
-/* 隐藏 el-memu 滚轮 */
-::-webkit-scrollbar {
-	display: none;
+html {
+	--w-e-default-blue: #00aeec;
 }
+
+/* 隐藏 el-memu 滚轮 */
+// ::-webkit-scrollbar {
+// 	display: none;
+// }
 
 /* 修复火狐浏览器的滚轮样式问题 */
 * {

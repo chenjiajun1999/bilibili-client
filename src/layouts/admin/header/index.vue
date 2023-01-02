@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-import HeaderButtonToggleMenu from "./HeaderButtonToggleMenu.vue";
-import HeaderButtonToggleScreen from "./HeaderButtonToggleScreen.vue";
-import HeaderBreadCrumb from "./HeaderBreadCrumb.vue";
-import HeaderAvatar from "./HeaderAvatar.vue";
+import HeaderButtonToggleMenu from "./module/HeaderButtonToggleMenu.vue";
+import HeaderButtonToggleScreen from "./module/HeaderButtonToggleScreen.vue";
+import HeaderBreadCrumb from "./module/HeaderBreadCrumb.vue";
+import HeaderAvatar from "./module/HeaderAvatar.vue";
 </script>
 
 <template>
 	<el-header class="border-b border-solid flex justify-between text-right text-xs">
-		<div class="flex align-center items-center">
+		<div class="flex items-center">
 			<HeaderButtonToggleMenu />
 		</div>
-		<div class="flex align-center items-center">
+		<div class="flex items-center">
 			<HeaderBreadCrumb />
 		</div>
 		<div class="flex items-center gap-2 justify-end h-full flex-1">

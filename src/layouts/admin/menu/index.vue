@@ -1,8 +1,8 @@
 <!-- 导航栏 -->
 <script setup lang="ts">
 import { useMenu } from "@/hooks/useMenu";
-import MenuItem from "./MenuItem.vue";
-import MenuBanner from "./MenuBanner.vue";
+import MenuItem from "./module/MenuItem.vue";
+import MenuBanner from "./module/MenuBanner.vue";
 const acticeIndex = ref<string>();
 const route = useRoute();
 const { menus, close, getCurrentMenu, toggleState } = useMenu();

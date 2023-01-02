@@ -1,4 +1,4 @@
-<!-- 系统框架 -->
+<!-- 管理端布局 -->
 <script setup lang="ts">
 import Menu from "./menu/index.vue";
 import Header from "./header/index.vue";

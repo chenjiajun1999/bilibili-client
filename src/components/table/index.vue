@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { CTableColumn } from "types/table";
 import { useTable } from "./useTable";
-import TableHead from "./TableHead.vue";
+import TableHead from "./module/TableHead.vue";
 
 interface Props {
 	columns: CTableColumn<any>[];

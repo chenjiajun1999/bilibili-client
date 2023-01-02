@@ -10,7 +10,7 @@ export default {
 		{
 			path: "dashboard",
 			name: "dashboard",
-			meta: { menu: { title: "仪表盘" } },
+			meta: { menu: { title: "工作台" } },
 			component: () => import("@/views/admin/dashboard/index.vue")
 		}
 	]
