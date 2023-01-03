@@ -6,6 +6,7 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import IconsResolver from "unplugin-icons/resolver";
 import Icons from "unplugin-icons/vite";
 import { viteMockServe } from "vite-plugin-mock";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 
 import path from "path";
 const srcPath = path.resolve(__dirname, "src");
@@ -54,7 +55,13 @@ export default ({ mode }) => {
 				dts: "components.d.ts",
 				resolvers: [ElementPlusResolver(), IconsResolver()]
 			}),
-			Icons({ autoInstall: true })
+			Icons({ autoInstall: true }),
+			createSvgIconsPlugin({
+				// 指定需要缓存的图标文件夹
+				iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],
+				// 指定symbolId格式
+				symbolId: "icon-[dir]-[name]"
+			})
 		]
 	});
 };

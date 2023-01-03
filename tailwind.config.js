@@ -4,7 +4,8 @@ module.exports = {
 	theme: {
 		extend: {
 			minWidth: {
-				mobile: "350px"
+				mobile: "350px",
+				webside: "1120px"
 			}
 		}
 	},

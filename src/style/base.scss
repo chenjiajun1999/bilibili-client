@@ -1,4 +1,4 @@
-html {
+:root {
 	--w-e-default-blue: #00aeec;
 }
 
@@ -15,6 +15,7 @@ input {
 	outline: none;
 }
 .el-main {
+	box-sizing: border-box;
 	padding: 0 !important;
 }
 .message-box-custom-class {

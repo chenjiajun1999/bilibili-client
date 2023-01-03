@@ -12,42 +12,27 @@
 .entry-item {
 	color: var(--w-e-text-color);
 	.entry-default {
-		display: inline-block;
-		height: 64px;
-		margin-right: 15px;
-		font-size: 14px;
-		line-height: 64px;
+		@apply 2xl:mr-4 xl:mr-3 mr-2 inline-block h-16 text-[14px] leading-[64px];
+
 		color: var(--w-e-text-color);
 		&:hover {
 			animation: hover 0.3s ease-in-out;
 		}
 	}
 	.entry-title {
-		display: flex;
-		align-items: center;
-		margin-right: 15px;
-		font-size: 14px;
-		svg {
-			margin-right: 6px;
+		@apply flex items-center 2xl:mr-4 xl:mr-3 mr-2 text-[14px];
+		.entry-svg {
+			@apply mr-[6px];
 		}
 		.entry-logo {
-			width: 60px;
-			margin-right: 25px;
-			cursor: pointer;
+			@apply w-[60px] mr-[25px] cursor-pointer;
 		}
 	}
 	.entry-outside {
-		display: flex;
-		flex-direction: column;
-		flex-shrink: 0;
-		align-items: center;
-		min-width: 50px;
-		margin-right: 0;
-		font-size: 13px;
-		text-align: center;
+		@apply 2xl:min-w-[50px] xl:min-w-[45px] min-w-[40px] flex flex-shrink-0 flex-col items-center mr-0 text-[13px] text-center;
 	}
 	.entry-icon {
-		margin-bottom: 2px;
+		@apply mb-[2px];
 		&:hover {
 			animation: hover 0.3s ease-in-out;
 		}

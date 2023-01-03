@@ -5,7 +5,7 @@ import HomeBanner from "./module/HomeBanner.vue";
 
 <template>
 	<HomeBanner />
-	<div style="width: 100%; height: 2000px">首页</div>
+	<div class="h-[2000px]">首页</div>
 </template>
 
 <style lang="scss" scoped></style>

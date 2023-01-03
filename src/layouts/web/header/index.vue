@@ -36,24 +36,24 @@ watch(
 </script>
 
 <template>
-	<el-header class="header-outside" :class="{ 'header-outside__fixed': isFixed }">
-		<ul class="header-entry">
+	<el-header class="layout-header" :class="{ 'layout-header__fixed': isFixed }">
+		<ul class="entry-container mr-4">
 			<HeaderLeftEntry :isFixed="isFixed" />
 		</ul>
-		<div class="header-entry w-1/3">
+		<div class="entry-container flex-auto">
 			<HeaderSearch />
 		</div>
-		<ul class="header-entry justify-end">
+		<ul class="entry-container ml-4 justify-end">
 			<HeaderRightEntry />
 		</ul>
 	</el-header>
 </template>
 
 <style lang="scss">
-.header-outside {
+.layout-header {
 	--w-e-text-color: #ffffff;
 	@apply absolute flex items-center justify-between z-50 w-full h-16;
-	&.header-outside__fixed {
+	&.layout-header__fixed {
 		@keyframes fixed {
 			from {
 				transform: translateY(-100%);
@@ -69,7 +69,7 @@ watch(
 		box-shadow: 0 0 5px 1px #0000001a;
 		animation: fixed 0.01s ease;
 	}
-	.header-entry {
+	.entry-container {
 		@apply flex items-center flex-shrink-0 h-full;
 	}
 }
