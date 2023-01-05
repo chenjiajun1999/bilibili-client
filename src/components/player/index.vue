@@ -64,7 +64,7 @@ function modifyVolumeStyle() {
 	};
 
 	if (player === null) {
-		throw new Error("onVolumeChange: player 对象为 null");
+		throw new Error("onVolumeChange: player is null");
 	}
 	player.on("VolumeChange", onVolumeChange);
 	onVolumeChange();

@@ -29,7 +29,7 @@ import HeaderRightEntryUpload from "./HeaderRightEntryUpload.vue";
 	</li>
 	<li class="entry-item">
 		<a class="entry-outside" href="#">
-			<SvgIcon name="collection" class="entry-icon" width="20px" height="21px" />
+			<SvgIcon name="collect" class="entry-icon" width="20px" height="21px" />
 			<span>收藏</span>
 		</a>
 	</li>
@@ -41,7 +41,7 @@ import HeaderRightEntryUpload from "./HeaderRightEntryUpload.vue";
 	</li>
 	<li class="entry-item">
 		<a class="entry-outside" href="#">
-			<SvgIcon name="creation" class="entry-icon" width="20px" height="21px" />
+			<SvgIcon name="create" class="entry-icon" width="20px" height="21px" />
 			<span>创作中心</span>
 		</a>
 	</li>

@@ -10,7 +10,7 @@ defineProps({
 <template>
 	<li class="entry-item">
 		<a class="entry-title" href="/">
-			<SvgIcon v-if="!isFixed" name="television" class="entry-svg" />
+			<SvgIcon v-if="!isFixed" name="tv" class="entry-svg" />
 			<SvgIcon v-else name="logo" class="entry-svg entry-logo" width="140px" height="64px" />
 			<span>首页</span>
 		</a>
