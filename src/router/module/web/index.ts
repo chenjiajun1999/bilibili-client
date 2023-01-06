@@ -11,7 +11,7 @@ export default {
 			component: () => import("@/views/web/home/index.vue")
 		},
 		{
-			path: "video",
+			path: "video/:id",
 			name: "video",
 			component: () => import("@/views/web/video/index.vue")
 		},

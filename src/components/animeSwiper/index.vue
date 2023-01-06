@@ -21,15 +21,33 @@ const swiperDom = ref<HTMLDivElement>();
 const mainDom = ref<HTMLDivElement>();
 const spotDom = ref<HTMLUListElement>();
 const btnDom = ref<HTMLButtonElement>();
-const iconDom = ref<HTMLButtonElement>();
+const iconDom = ref<HTMLDivElement>();
 const moveWidth = ref(0);
 const oldMoveWidth = ref<number>();
+const spotShowNum = ref(7);
 const swiperAnimeList = ref<Array<Anime>>([props.animeList[props.animeList.length - 1], ...props.animeList, props.animeList[0]]);
+const btnColor = ref<string>();
 let totalTime = props.animeTime + props.intervalTime;
 let timer: NodeJS.Timer;
 let observer: ResizeObserver;
-let colorMap: Map<String, String> = new Map();
-const btnColor = ref();
+let colorMap = new Map<String, String>();
+
+function isSpotItemShow(index: number) {
+	if (props.animeList.length <= spotShowNum.value) {
+		return true;
+	}
+	let left = Math.max(nowIndex.value - spotShowNum.value + 1, 0);
+	return index >= left && index < left + spotShowNum.value;
+}
+
+function onPlayButtonMoveover() {
+	iconDom.value!.style.transform = "scale(1.2, 1.2)";
+	clearInterval(timer);
+}
+function onPlayButtonMoveout() {
+	iconDom.value!.style.transform = "scale(1, 1)";
+	timer = setInterval(nextSlider, totalTime);
+}
 
 function getButtonKey(id: number) {
 	return Md5.hashStr("BUTTON_ACTIVATE_" + id.toString());
@@ -41,19 +59,20 @@ function setActiveSpot() {
 		if (i === Math.abs(nowIndex.value)) {
 			// 激活
 			itemDom.style.transform = "scale(1.2, 1.2)";
+			itemDom.style.borderWidth = "4.5px";
 			const key = getButtonKey(i);
 			if (!colorMap.has(key)) {
 				const imgDom = itemDom.childNodes[0].childNodes[0] as HTMLImageElement;
-				// btnColorMap.set(key, useImageMainColor(imgDom));
 				useImageMainColor(imgDom, 0.8).then(res => {
 					colorMap.set(key, res);
-					btnColor.value = colorMap.get(key);
+					btnColor.value = colorMap.get(key) as string;
 				});
 			}
-			btnColor.value = colorMap.has(key) ? colorMap.get(key) : null;
+			btnColor.value = (colorMap.has(key) ? colorMap.get(key) : null) as string;
 		} else {
 			// 未激活
 			itemDom.style.transform = "scale(1, 1)";
+			itemDom.style.borderWidth = "4px";
 		}
 	}
 }
@@ -78,6 +97,7 @@ function eventBind() {
 	// 监听 swiperDom 的宽度并初始化 moveWidth
 	observer = new ResizeObserver(() => {
 		moveWidth.value = swiperDom.value!.offsetWidth;
+		spotShowNum.value = moveWidth.value >= 1366 ? 7 : 6;
 		if (typeof oldMoveWidth.value === "undefined") {
 			mainDom.value!.style.left = `${-moveWidth.value}px`;
 			oldMoveWidth.value = moveWidth.value;
@@ -119,15 +139,6 @@ function eventBind() {
 	});
 }
 
-function onPlayButtonMoveover() {
-	iconDom.value!.style.transform = "scale(1.2, 1.2)";
-	clearInterval(timer);
-}
-function onPlayButtonMoveout() {
-	iconDom.value!.style.transform = "scale(1, 1)";
-	timer = setInterval(nextSlider, totalTime);
-}
-
 onMounted(() => {
 	if (props.animeList.length === 0) {
 		throw new Error("anime swiper component: array of input image is null");
@@ -164,7 +175,7 @@ onBeforeUnmount(() => {
 				</el-button>
 			</div>
 			<ul class="swiper-spot" ref="spotDom">
-				<li v-for="(anime, index) in animeList" :key="index" class="spot-item" :index="index">
+				<li v-for="(anime, index) in animeList" :key="index" :index="index" v-show="isSpotItemShow(index)" class="spot-item">
 					<a :href="`/video/${anime.id}`">
 						<img crossOrigin="anonymous" class="rounded" :src="`${anime.characterPosterPath}`" />
 					</a>
@@ -199,20 +210,20 @@ img {
 
 		background: linear-gradient(transparent, white);
 		.swiper-spot {
-			@apply flex items-center justify-center pb-4;
+			@apply flex items-center justify-center pb-5;
 			.spot-item {
-				@apply w-[14%] min-w-[155px] mx-1.5 z-20 rounded-lg border-4 border-[#e3e5e7] border-opacity-[0.5];
+				@apply relative w-[14%] min-w-[155px] mx-[7px] rounded-lg border-4 border-[#e3e5e7] border-opacity-[0.5];
 
 				transition: transform v-bind('animeTime / 1000+"s"');
 			}
 			@media screen and (min-width: 1366px) {
 				.spot-item {
-					@apply w-[11.5%] mx-2;
+					@apply w-[11%];
 				}
 			}
 		}
 		.swiper-button {
-			@apply flex w-full bottom-0 items-center mb-[30px];
+			@apply flex w-full bottom-0 items-center mb-[26px];
 
 			margin-left: v-bind('moveWidth / 9+"px"');
 			.play-icon {
@@ -226,7 +237,7 @@ img {
 		}
 		@media screen and (min-width: 1366px) {
 			.swiper-button {
-				margin-left: v-bind('moveWidth / 6+"px"');
+				margin-left: v-bind('moveWidth / 5.5+"px"');
 			}
 		}
 	}

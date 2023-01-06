@@ -2,7 +2,7 @@
 <script setup lang="ts"></script>
 
 <template>
-	<div>视频播放</div>
+	<div class="relative flex flex-col w-full h-full pt-16 justify-center">视频播放</div>
 </template>
 
 <style lang="scss" scoped></style>
