@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import "./index.scss";
-import HeaderLeftEntry from "./module/HeaderLeftEntry.vue";
-import HeaderRightEntry from "./module/HeaderRightEntry.vue";
+import HeaderLeftEntry from "./module/left/index.vue";
+import HeaderRightEntry from "./module/right/index.vue";
 import HeaderSearch from "./module/HeaderSearch.vue";
 
 const isFixed = ref(false);

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import HeaderRightEntryAvatar from "./HeaderRightEntryAvatar.vue";
-import HeaderRightEntryUpload from "./HeaderRightEntryUpload.vue";
+import HeaderAvatar from "./module/HeaderAvatar.vue";
+import HeaderUpload from "./module/HeaderUpload.vue";
 </script>
 
 <template>
 	<li class="entry-item">
 		<a class="entry-outside" href="/login">
-			<HeaderRightEntryAvatar />
+			<HeaderAvatar />
 		</a>
 	</li>
 	<li class="entry-item">
@@ -47,7 +47,7 @@ import HeaderRightEntryUpload from "./HeaderRightEntryUpload.vue";
 	</li>
 	<li class="entry-item">
 		<a class="entry-title" href="#">
-			<HeaderRightEntryUpload />
+			<HeaderUpload />
 		</a>
 	</li>
 </template>
