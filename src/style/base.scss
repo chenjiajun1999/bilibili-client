@@ -1,5 +1,13 @@
 :root {
 	--w-e-default-blue: #00aeec;
+	--w-e-black-1: #18191c;
+	--w-e-black-2: #212121;
+	--w-e-gray-1: #e3e5e7;
+	--w-e-gray-2: #9499a0;
+	--w-e-gray-3: #61666d;
+	--w-e-line-regular: var(--w-e-gray-1);
+	--w-e-inactive: var(--w-e-gray-3);
+	--w-e-active: var(--w-e-default-blue);
 }
 
 /* 隐藏 el-memu 滚轮 */

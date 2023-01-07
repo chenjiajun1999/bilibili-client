@@ -6,4 +6,9 @@
 	</el-main>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.el-main {
+	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB",
+		"Microsoft YaHei", sans-serif;
+}
+</style>

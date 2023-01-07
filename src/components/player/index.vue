@@ -19,10 +19,12 @@ const { mirrorSwitch, quantitySelector, speedSelector, playStatePlugin, danmakuP
 <template>
 	<div class="relative w-full h-full">
 		<n-player
+			crossOrigin="anonymous"
 			:options="{
 				themeColor: 'rgba(35,173,229, 1)',
 				progressBg: 'rgba(35,173,229, 1)',
 				volumeProgressBg: 'rgba(35,173,229, 1)',
+				posterEnable: false,
 				plugins: [
 					new Danmaku({ autoInsert: true, items: props.bullets }),
 					playStatePlugin,
