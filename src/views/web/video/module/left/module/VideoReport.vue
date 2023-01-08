@@ -2,7 +2,7 @@
 defineProps({
 	name: {
 		type: String,
-		default: "Vue3 + vite + Ts + pinia + 实战 + 源码 + electron"
+		default: "视频标题"
 	},
 	viewCount: {
 		type: Number,
@@ -20,8 +20,8 @@ defineProps({
 </script>
 
 <template>
-	<h1 class="text-xl mb-1.5" style="color: var(--w-e-black-1)">{{ name }}</h1>
-	<div class="relative flex h-6 text-[13px] leading-[18px] items-center" style="color: var(--w-e-gray-2)">
+	<h1 class="text-xl mb-1.5" style="color: var(--b-c-dark-black)">{{ name }}</h1>
+	<div class="relative flex h-6 text-[13px] leading-[18px] items-center" style="color: var(--b-c-default-gray)">
 		<div class="flex items-center">
 			<span class="inline-flex flex-shrink-0 mr-3 items-center">
 				<SvgIcon class="mr-1" name="view" width="20px" height="20px" />

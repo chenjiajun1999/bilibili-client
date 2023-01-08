@@ -56,15 +56,15 @@ function onClick() {}
 .toolbar-container {
 	@apply relative flex items-center pt-4 pb-3 text-[13px] leading-7 border-b border-solid;
 
-	border-color: var(--w-e-line-regular);
+	border-color: var(--b-c-line-regular);
 	.toolbar-side {
 		@apply relative flex items-center flex-shrink-0;
 		.toolbar-item {
 			@apply inline-flex items-center cursor-pointer;
 
-			color: var(--w-e-inactive);
+			color: var(--b-c-default-inactive);
 			&:hover {
-				color: var(--w-e-active);
+				color: var(--b-c-default-active);
 			}
 		}
 	}

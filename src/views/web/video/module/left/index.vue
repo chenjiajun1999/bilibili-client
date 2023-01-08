@@ -2,6 +2,9 @@
 import VideoPlayer from "./module/VideoPlayer.vue";
 import VideoReport from "./module/VideoReport.vue";
 import VideoToolBar from "./module/VideoToolbar.vue";
+import VideoIntro from "./module/VideoIntro.vue";
+import VideoTag from "./module/VideoTag.vue";
+import VideoCommand from "./module/VideoCommand.vue";
 </script>
 
 <template>
@@ -13,6 +16,15 @@ import VideoToolBar from "./module/VideoToolbar.vue";
 	</div>
 	<div class="h-[57px] w-full">
 		<VideoToolBar />
+	</div>
+	<div class="w-full">
+		<VideoIntro />
+	</div>
+	<div class="w-full">
+		<VideoTag />
+	</div>
+	<div class="w-full">
+		<VideoCommand />
 	</div>
 </template>
 

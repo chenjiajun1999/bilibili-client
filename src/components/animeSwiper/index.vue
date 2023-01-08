@@ -25,7 +25,7 @@ const iconDom = ref<HTMLDivElement>();
 const moveWidth = ref(0);
 const oldMoveWidth = ref<number>();
 const spotShowNum = ref(7);
-const swiperAnimeList = ref<Array<Anime>>([props.animeList[props.animeList.length - 1], ...props.animeList, props.animeList[0]]);
+const animeRenderList = ref<Array<Anime>>([props.animeList[props.animeList.length - 1], ...props.animeList, props.animeList[0]]);
 const btnColor = ref<string>();
 let totalTime = props.animeTime + props.intervalTime;
 let timer: NodeJS.Timer;
@@ -155,7 +155,7 @@ onBeforeUnmount(() => {
 	<div class="anime-swiper" ref="swiperDom" :style="{ height: `${moveWidth / 3}px` }">
 		<ul class="swiper-main" ref="mainDom" :style="{ width: `${moveWidth * (props.animeList.length + 2)}px` }">
 			<li
-				v-for="(anime, index) in swiperAnimeList"
+				v-for="(anime, index) in animeRenderList"
 				:key="index"
 				class="swiper-item"
 				:style="{ width: `${moveWidth}px`, left: `${index * moveWidth}px` }"
@@ -212,8 +212,9 @@ img {
 		.swiper-spot {
 			@apply flex items-center justify-center pb-5;
 			.spot-item {
-				@apply relative w-[14%] min-w-[155px] mx-[7px] rounded-lg border-4 border-[#e3e5e7] border-opacity-[0.5];
+				@apply relative w-[14%] min-w-[155px] mx-[7px] rounded-lg border-4 border-opacity-[0.5];
 
+				border-color: var(--b-c-light-gray);
 				transition: transform v-bind('animeTime / 1000+"s"');
 			}
 			@media screen and (min-width: 1366px) {

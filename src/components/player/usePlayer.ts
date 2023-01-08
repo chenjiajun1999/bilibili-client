@@ -213,6 +213,8 @@ export function usePlayer() {
 
 	const volumePlugin = {
 		apply(player: Player) {
+			player.opts.volumeVertical = true;
+			player.opts.volumeBarLength = "60px";
 			player.on("AfterInit", () => {
 				const volumeDom = player.el.getElementsByClassName("nplayer_control_volume_bars")[0];
 				const outlineDom = document.createElement("div");
@@ -265,8 +267,6 @@ export function usePlayer() {
 
 			player.opts.progressDot = createIcon("progressDot", 18, 18, true)("text-black");
 			player.opts.posterPlayEl = createIcon("playBig", 80, 80)();
-			player.opts.volumeVertical = true;
-			player.opts.volumeBarLength = "60px";
 		}
 	};
 
