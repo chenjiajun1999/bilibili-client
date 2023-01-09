@@ -4,7 +4,7 @@ import VideoReport from "./module/VideoReport.vue";
 import VideoToolBar from "./module/VideoToolbar.vue";
 import VideoIntro from "./module/VideoIntro.vue";
 import VideoTag from "./module/VideoTag.vue";
-import VideoCommand from "./module/VideoCommand.vue";
+import VideoCommand from "./module/VideoComment.vue";
 </script>
 
 <template>

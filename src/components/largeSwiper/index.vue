@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { Anime } from "types/anime";
+import { PosterOption } from "types/poster";
 import { Md5 } from "ts-md5";
 import useImageMainColor from "@/hooks/useImageMainColor";
 const props = defineProps({
-	animeList: {
-		type: Array<Anime>,
+	posterList: {
+		type: Array<PosterOption>,
 		default: []
 	},
 	animeTime: {
@@ -25,7 +25,11 @@ const iconDom = ref<HTMLDivElement>();
 const moveWidth = ref(0);
 const oldMoveWidth = ref<number>();
 const spotShowNum = ref(7);
-const animeRenderList = ref<Array<Anime>>([props.animeList[props.animeList.length - 1], ...props.animeList, props.animeList[0]]);
+const posterRenderList = ref<Array<PosterOption>>([
+	props.posterList[props.posterList.length - 1],
+	...props.posterList,
+	props.posterList[0]
+]);
 const btnColor = ref<string>();
 let totalTime = props.animeTime + props.intervalTime;
 let timer: NodeJS.Timer;
@@ -33,7 +37,7 @@ let observer: ResizeObserver;
 let colorMap = new Map<String, String>();
 
 function isSpotItemShow(index: number) {
-	if (props.animeList.length <= spotShowNum.value) {
+	if (props.posterList.length <= spotShowNum.value) {
 		return true;
 	}
 	let left = Math.max(nowIndex.value - spotShowNum.value + 1, 0);
@@ -54,7 +58,7 @@ function getButtonKey(id: number) {
 }
 
 function setActiveSpot() {
-	for (let i = 0; i < props.animeList.length; i++) {
+	for (let i = 0; i < props.posterList.length; i++) {
 		const itemDom = document.getElementsByClassName("spot-item")[i] as HTMLLIElement;
 		if (i === Math.abs(nowIndex.value)) {
 			// 激活
@@ -77,11 +81,11 @@ function setActiveSpot() {
 	}
 }
 function nextSlider() {
-	if (props.animeList.length === 1) return;
+	if (props.posterList.length === 1) return;
 	nowIndex.value++;
 	mainDom.value!.style.transition = `left ${props.animeTime / 1000}s`;
 	mainDom.value!.style.left = `${parseInt(mainDom.value!.style.left) - moveWidth.value}px`;
-	if (nowIndex.value === props.animeList.length) {
+	if (nowIndex.value === props.posterList.length) {
 		nowIndex.value = 0;
 		setActiveSpot();
 		setTimeout(function () {
@@ -140,8 +144,8 @@ function eventBind() {
 }
 
 onMounted(() => {
-	if (props.animeList.length === 0) {
-		throw new Error("anime swiper component: array of input image is null");
+	if (props.posterList.length === 0) {
+		throw new Error("large swiper component: array of input image is null");
 	}
 	eventBind();
 	setActiveSpot();
@@ -152,16 +156,16 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-	<div class="anime-swiper" ref="swiperDom" :style="{ height: `${moveWidth / 3}px` }">
-		<ul class="swiper-main" ref="mainDom" :style="{ width: `${moveWidth * (props.animeList.length + 2)}px` }">
+	<div class="large-swiper" ref="swiperDom" :style="{ height: `${moveWidth / 3}px` }">
+		<ul class="swiper-main" ref="mainDom" :style="{ width: `${moveWidth * (props.posterList.length + 2)}px` }">
 			<li
-				v-for="(anime, index) in animeRenderList"
+				v-for="(poster, index) in posterRenderList"
 				:key="index"
 				class="swiper-item"
 				:style="{ width: `${moveWidth}px`, left: `${index * moveWidth}px` }"
 			>
-				<a :href="`/video/${anime.id}`">
-					<img :src="`${anime.posterPath}`" />
+				<a :href="`/video/${poster.id}`">
+					<img :src="`${poster.path}`" />
 				</a>
 			</li>
 		</ul>
@@ -171,13 +175,13 @@ onBeforeUnmount(() => {
 					<div ref="iconDom" class="play-icon">
 						<SvgIcon name="play" class="mt-3.5 ml-3" width="18px" height="18px" />
 					</div>
-					{{ animeList[nowIndex].name }}
+					{{ posterList[nowIndex].name }}
 				</el-button>
 			</div>
 			<ul class="swiper-spot" ref="spotDom">
-				<li v-for="(anime, index) in animeList" :key="index" :index="index" v-show="isSpotItemShow(index)" class="spot-item">
-					<a :href="`/video/${anime.id}`">
-						<img crossOrigin="anonymous" class="rounded" :src="`${anime.characterPosterPath}`" />
+				<li v-for="(poster, index) in posterList" :key="index" :index="index" v-show="isSpotItemShow(index)" class="spot-item">
+					<a :href="`/video/${poster.id}`">
+						<img crossOrigin="anonymous" class="rounded" :src="`${poster.subPath}`" />
 					</a>
 				</li>
 			</ul>
@@ -197,7 +201,7 @@ img {
 		@apply text-sky-400;
 	}
 }
-.anime-swiper {
+.large-swiper {
 	@apply min-h-[440px] relative my-0 mx-auto z-0 overflow-hidden;
 	.swiper-main {
 		@apply absolute h-full overflow-hidden;
@@ -212,9 +216,8 @@ img {
 		.swiper-spot {
 			@apply flex items-center justify-center pb-5;
 			.spot-item {
-				@apply relative w-[14%] min-w-[155px] mx-[7px] rounded-lg border-4 border-opacity-[0.5];
+				@apply relative w-[14%] min-w-[155px] mx-[7px] rounded-lg border-4 border-opacity-[0.5] border-custom-gray-light;
 
-				border-color: var(--b-c-light-gray);
 				transition: transform v-bind('animeTime / 1000+"s"');
 			}
 			@media screen and (min-width: 1366px) {
