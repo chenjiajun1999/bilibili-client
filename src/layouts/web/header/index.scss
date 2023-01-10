@@ -10,11 +10,11 @@
 	}
 }
 .entry-item {
-	color: var(--w-e-text-color);
+	color: var(--text-color);
 	.entry-default {
 		@apply 2xl:mr-4 xl:mr-3 mr-2 inline-block h-16 text-[14px] leading-[64px];
 
-		color: var(--w-e-text-color);
+		color: var(--text-color);
 		&:hover {
 			animation: hover 0.3s ease-in-out;
 		}

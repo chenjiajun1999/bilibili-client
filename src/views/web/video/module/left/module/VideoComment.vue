@@ -17,7 +17,7 @@ const isHot = ref(true);
 			</li>
 			<li class="flex items-center text-[13px] text-thirdly">
 				<div class="cursor-pointer" :class="isHot ? 'sort-active' : 'sort-inactive'" @click="() => (isHot = true)">最热</div>
-				<div class="h-[11px] my-0 mx-3 border-r-[1px] border-solid border-custom-gray"></div>
+				<div class="h-[11px] my-0 mx-3 border-r-[1px] border-solid border-gray-5"></div>
 				<div class="cursor-pointer" :class="!isHot ? 'sort-active' : 'sort-inactive'" @click="() => (isHot = false)">最新</div>
 			</li>
 		</ul>

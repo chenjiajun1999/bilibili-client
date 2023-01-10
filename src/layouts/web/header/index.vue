@@ -51,7 +51,7 @@ watch(
 
 <style lang="scss">
 .layout-header {
-	--w-e-text-color: #ffffff;
+	--text-color: white;
 	@apply absolute flex items-center justify-between z-50 w-full h-16;
 	&.layout-header__fixed {
 		@keyframes fixed {
@@ -64,7 +64,7 @@ watch(
 		}
 		@apply fixed bg-white;
 
-		--w-e-text-color: #18191c;
+		--text-color: var(--b-c-text-primary);
 
 		box-shadow: 0 0 5px 1px #0000001a;
 		animation: fixed 0.01s ease;

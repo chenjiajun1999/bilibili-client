@@ -106,16 +106,14 @@ ul::after {
 	transform: rotate(180deg);
 }
 .tag {
-	@apply max-w-[300px] relative h-7 mt-0 mr-3 mb-2 ml-0 float-left rounded-full bg-custom-gray-lighter;
+	@apply max-w-[300px] relative h-7 mt-0 mr-3 mb-2 ml-0 float-left rounded-full bg-gray-1;
 	.tag-item {
 		@apply text-[13px] leading-7 px-3 py-0 text-secondly;
 	}
 	.tag-expand {
-		@apply cursor-pointer h-full w-full pt-3 px-[9px];
-
-		color: var(--b-c-default-inactive);
+		@apply cursor-pointer h-full w-full pt-3 px-[9px] text-regular;
 		&:hover {
-			color: var(--b-c-default-active);
+			@apply text-active;
 		}
 	}
 }

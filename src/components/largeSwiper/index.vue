@@ -216,7 +216,7 @@ img {
 		.swiper-spot {
 			@apply flex items-center justify-center pb-5;
 			.spot-item {
-				@apply relative w-[14%] min-w-[155px] mx-[7px] rounded-lg border-4 border-opacity-[0.5] border-custom-gray-light;
+				@apply relative w-[14%] min-w-[155px] mx-[7px] rounded-lg border-4 border-opacity-[0.5] border-line-regular;
 
 				transition: transform v-bind('animeTime / 1000+"s"');
 			}

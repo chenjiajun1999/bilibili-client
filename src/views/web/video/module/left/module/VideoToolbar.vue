@@ -54,15 +54,13 @@ function onClick() {}
 
 <style lang="scss" scoped>
 .toolbar-container {
-	@apply relative flex items-center pt-4 pb-3 text-[13px] leading-7 border-b border-solid border-custom-gray-light;
+	@apply relative flex items-center pt-4 pb-3 text-[13px] leading-7 border-b border-solid border-line-regular;
 	.toolbar-side {
 		@apply relative flex items-center flex-shrink-0;
 		.toolbar-item {
-			@apply inline-flex items-center cursor-pointer;
-
-			color: var(--b-c-default-inactive);
+			@apply inline-flex items-center cursor-pointer text-regular;
 			&:hover {
-				color: var(--b-c-default-active);
+				@apply text-active;
 			}
 		}
 	}

@@ -1,14 +1,29 @@
 :root {
-	--b-c-default-blue: #00aeec;
-	--b-c-dark-black: #18191c;
-	--b-c-black: #212121;
-	--b-c-white: #f1f2f3;
-	--b-c-light-gray: #e3e5e7;
-	--b-c-gray: #9499a0;
-	--b-c-dark-gray: #61666d;
-	--b-c-line-regular: var(--b-c-light-gray);
-	--b-c-default-inactive: var(--b-c-dark-gray);
-	--b-c-default-active: var(--b-c-default-blue);
+	--b-c-blue-0: #00aeec;
+	--b-c-cyan-blue-0: #00bac5;
+	--b-c-orange-0: #e58900;
+	--b-c-gray-0: #f6f7f8;
+	--b-c-gray-1: #f1f2f3;
+	--b-c-gray-2: #e3e5e7;
+	--b-c-gray-3: #c9ccd0;
+	--b-c-gray-4: #aeb3b9;
+	--b-c-gray-5: #9499a0;
+	--b-c-gray-6: #797f87;
+	--b-c-gray-7: #61666d;
+	--b-c-gray-8: #484c53;
+	--b-c-gray-9: #2f3238;
+	--b-c-gray-10: #18191c;
+	--b-c-text-primary: var(--b-c-gray-10);
+	--b-c-text-secondly: var(--b-c-gray-7);
+	--b-c-text-thirdly: var(--b-c-gray-5);
+	--b-c-text-fourthly: var(--b-c-gray-3);
+	--b-c-text-link: var(--b-c-cyan-blue-0);
+	--b-c-text-notice: var(--b-c-orange-0);
+	--b-c-text-regular: var(--b-c-gray-7);
+	--b-c-text-active: var(--b-c-blue-0);
+	--b-c-line-light: var(--b-c-gray-1);
+	--b-c-line-regular: var(--b-c-gray-2);
+	--b-c-line-bold: var(--b-c-gray-3);
 }
 
 /* 隐藏 el-memu 滚轮 */
