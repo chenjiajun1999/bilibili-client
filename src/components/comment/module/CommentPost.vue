@@ -60,6 +60,7 @@ function onPostClick() {}
 				</div>
 			</div>
 		</div>
+		<Emoji />
 	</div>
 </template>
 

@@ -1,10 +1,10 @@
-import { ElementEnum } from "@/enum/elementEnum";
 import { ElMessageBox } from "element-plus";
+import { C } from "@/constants";
 
 export function useDialog(msg: string, successCallback: (params?: any) => any, errCallback?: (err: any) => any) {
 	ElMessageBox.confirm(msg, undefined, {
 		customStyle: {
-			width: ElementEnum.ELEMENT_MESSAGE_BOX_SIZE
+			width: C.ELEMENT_MESSAGE_BOX_SIZE
 		}
 	})
 		.then(() => {
