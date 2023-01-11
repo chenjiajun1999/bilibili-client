@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Md5 } from "ts-md5";
+import hashStr from "@/utils/hashStr";
 const props = defineProps({
 	tagList: {
 		type: Array<String>,
@@ -15,7 +15,7 @@ const isExpanded = ref(false);
 const ulDom = ref<HTMLUListElement>();
 const tagRenderList = ref<Array<String>>([...props.tagList]);
 let expandSet = new Set<String>();
-let expandKey = Md5.hashStr(Date.now().toString());
+let expandKey = hashStr(Date.now().toString());
 let observer: ResizeObserver;
 let lineHeight = 40; // 36 向上兼容
 
@@ -54,7 +54,7 @@ async function calculateExpandButtonIndex() {
 }
 
 function getTagKey(tag: string, index: number) {
-	return Md5.hashStr("TAG_" + index + "_" + tag);
+	return hashStr(index.toString(), tag);
 }
 
 function onClick() {
@@ -98,17 +98,17 @@ onMounted(() => {
 <style lang="scss" scoped>
 // 防止 <ul> 高度为 0，单行高度为 36
 ul::after {
-	display: block;
-	clear: both;
+	@apply block clear-both;
+
 	content: "";
 }
 .tag-expand__round {
-	transform: rotate(180deg);
+	@apply transform rotate-180;
 }
 .tag {
 	@apply max-w-[300px] relative h-7 mt-0 mr-3 mb-2 ml-0 float-left rounded-full bg-gray-1;
 	.tag-item {
-		@apply text-[13px] leading-7 px-3 py-0 text-secondly;
+		@apply text-tiny leading-7 px-3 py-0 text-secondly;
 	}
 	.tag-expand {
 		@apply cursor-pointer h-full w-full pt-3 px-[9px] text-regular;

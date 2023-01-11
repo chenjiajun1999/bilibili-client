@@ -21,7 +21,7 @@ defineProps({
 
 <template>
 	<h1 class="text-xl mb-1.5 text-primary">{{ name }}</h1>
-	<div class="relative flex h-6 text-[13px] leading-[18px] items-center text-thirdly">
+	<div class="relative flex h-6 text-tiny leading-[18px] items-center text-thirdly">
 		<div class="flex items-center">
 			<span class="inline-flex flex-shrink-0 mr-3 items-center">
 				<SvgIcon class="mr-1" name="view" width="20px" height="20px" />

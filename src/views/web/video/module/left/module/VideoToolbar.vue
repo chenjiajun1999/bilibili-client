@@ -54,7 +54,7 @@ function onClick() {}
 
 <style lang="scss" scoped>
 .toolbar-container {
-	@apply relative flex items-center pt-4 pb-3 text-[13px] leading-7 border-b border-solid border-line-regular;
+	@apply relative flex items-center pt-4 pb-3 text-tiny leading-7 border-b border-solid border-line-regular;
 	.toolbar-side {
 		@apply relative flex items-center flex-shrink-0;
 		.toolbar-item {

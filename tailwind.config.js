@@ -7,6 +7,9 @@ module.exports = {
 				mobile: "350px",
 				webside: "1120px"
 			},
+			fontSize: {
+				tiny: "13px"
+			},
 			textColor: {
 				primary: "var(--b-c-text-primary)",
 				secondly: "var(--b-c-text-secondly)",

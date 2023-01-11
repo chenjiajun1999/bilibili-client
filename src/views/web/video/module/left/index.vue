@@ -23,7 +23,7 @@ import VideoCommand from "./module/VideoComment.vue";
 	<div class="w-full">
 		<VideoTag />
 	</div>
-	<div class="w-full">
+	<div class="min-h-[241px] w-full">
 		<VideoCommand />
 	</div>
 </template>

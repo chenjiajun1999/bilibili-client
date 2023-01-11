@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PosterOption } from "types/poster";
-import { Md5 } from "ts-md5";
+import hashStr from "@/utils/hashStr";
 import useImageMainColor from "@/hooks/useImageMainColor";
 const props = defineProps({
 	posterList: {
@@ -44,17 +44,13 @@ function isSpotItemShow(index: number) {
 	return index >= left && index < left + spotShowNum.value;
 }
 
-function onPlayButtonMoveover() {
+function onPlayMoveover() {
 	iconDom.value!.style.transform = "scale(1.2, 1.2)";
 	clearInterval(timer);
 }
-function onPlayButtonMoveout() {
+function onPlayMoveout() {
 	iconDom.value!.style.transform = "scale(1, 1)";
 	timer = setInterval(nextSlider, totalTime);
-}
-
-function getButtonKey(id: number) {
-	return Md5.hashStr("BUTTON_ACTIVATE_" + id.toString());
 }
 
 function setActiveSpot() {
@@ -64,7 +60,7 @@ function setActiveSpot() {
 			// 激活
 			itemDom.style.transform = "scale(1.2, 1.2)";
 			itemDom.style.borderWidth = "4.5px";
-			const key = getButtonKey(i);
+			const key = hashStr(i.toString(), "button");
 			if (!colorMap.has(key)) {
 				const imgDom = itemDom.childNodes[0].childNodes[0] as HTMLImageElement;
 				useImageMainColor(imgDom, 0.8).then(res => {
@@ -171,7 +167,7 @@ onBeforeUnmount(() => {
 		</ul>
 		<div class="swiper-inner-group">
 			<div class="swiper-button">
-				<el-button round ref="btnDom" @mouseover.enter="onPlayButtonMoveover" @mouseout.enter="onPlayButtonMoveout">
+				<el-button round ref="btnDom" @mouseover.enter="onPlayMoveover" @mouseout.enter="onPlayMoveout">
 					<div ref="iconDom" class="play-icon">
 						<SvgIcon name="play" class="mt-3.5 ml-3" width="18px" height="18px" />
 					</div>

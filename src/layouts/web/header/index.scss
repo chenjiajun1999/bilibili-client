@@ -29,7 +29,7 @@
 		}
 	}
 	.entry-outside {
-		@apply 2xl:min-w-[50px] xl:min-w-[45px] min-w-[40px] flex flex-shrink-0 flex-col items-center mr-0 text-[13px] text-center;
+		@apply 2xl:min-w-[50px] xl:min-w-[45px] min-w-[40px] flex flex-shrink-0 flex-col items-center mr-0 text-tiny text-center;
 	}
 	.entry-icon {
 		@apply mb-[2px];

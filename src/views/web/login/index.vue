@@ -19,31 +19,20 @@
 										<div class="text-gray-400 text-center mb-3 font-bold"></div>
 										<form>
 											<div class="relative w-full mb-3">
-												<!-- <label class="block uppercase text-sm font-bold mb-2" htmlFor="grid-password"> 手机/邮箱 </label> -->
 												<input
 													type="text"
-													class="border-0 px-3 py-3 placeholder-gray-400 text-gray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+													class="border-0 px-3 py-3 placeholder-gray-400 text-gray-600 bg-white rounded text-sm shadow w-full ease-linear transition-all duration-150"
 													placeholder="请输入账号或邮箱"
 												/>
 											</div>
 
 											<div class="relative w-full mb-3">
-												<!-- <label class="block uppercase text-sm font-bold mb-2" htmlFor="grid-password"> 密码 </label> -->
 												<input
 													type="password"
-													class="border-0 px-3 py-3 placeholder-gray-400 text-gray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+													class="border-0 px-3 py-3 placeholder-gray-400 text-gray-600 bg-white rounded text-sm shadow w-full ease-linear transition-all duration-150"
 													placeholder="请输入密码"
 												/>
 											</div>
-											<!-- TODO: 添加验证码 -->
-											<!-- <div class="relative w-full mb-3">
-												<input
-													type="text"
-													class="border-0 px-3 py-3 placeholder-gray-400 text-gray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-3/4 ease-linear transition-all duration-150"
-													placeholder="请输入验证码"
-												/>
-											</div> -->
-
 											<div>
 												<label class="inline-flex items-center cursor-pointer">
 													<input
@@ -65,14 +54,14 @@
 											</div>
 											<div class="flex flex-wrap mt-6 relative">
 												<div class="w-1/2">
-													<a href="javascript:void(0)" class="text-blueGray-200">
+													<a href="javascript:void(0)" class="hover:text-link">
 														<small>忘记密码?</small>
 													</a>
 												</div>
 												<div class="w-1/2 text-right">
-													<router-link to="/auth/register" class="text-blueGray-200">
+													<a href="javascript:void(0)" class="hover:text-link">
 														<small>创建新用户</small>
-													</router-link>
+													</a>
 												</div>
 											</div>
 										</form>
@@ -89,7 +78,7 @@
 
 <style lang="scss" scoped>
 .login-img {
-	background: url("https://s2.loli.net/2022/12/03/IDy14GA5ULO7jKJ.jpg");
+	background: url("@/assets/imgs/background.jpg");
 	background-size: cover;
 }
 </style>
