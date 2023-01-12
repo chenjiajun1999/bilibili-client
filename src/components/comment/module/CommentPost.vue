@@ -9,6 +9,10 @@ const content = ref("");
 const isExpended = ref(false);
 const inputRef = ref();
 
+function addText(val: string) {
+	content.value = content.value.concat(val);
+}
+
 function onFocus() {
 	isExpended.value = true;
 }
@@ -22,7 +26,7 @@ function onMousedown(e: MouseEvent) {
 
 function onEmojiClick() {}
 function onCallClick() {
-	content.value = content.value.concat("@");
+	addText("@");
 }
 function onPostClick() {}
 </script>
@@ -52,15 +56,16 @@ function onPostClick() {}
 		</div>
 		<div class="flex w-full" v-show="isExpended">
 			<div class="flex justify-center items-center ml-20 mt-[5px]">
-				<div class="expend-btn" @mousedown.enter="onMousedown" @click="onEmojiClick">
-					<SvgIcon name="emoji" width="16px" height="16px" />
-				</div>
+				<Emoji :on-mousedown="onMousedown" @add-emoji="(val: string) => addText(val)">
+					<div class="expend-btn" @mousedown.enter="onMousedown" @click="onEmojiClick">
+						<SvgIcon name="emoji" width="16px" height="16px" />
+					</div>
+				</Emoji>
 				<div class="expend-btn ml-1.5" @mousedown.enter="onMousedown" @click="onCallClick">
 					<SvgIcon name="call" width="16px" height="16px" />
 				</div>
 			</div>
 		</div>
-		<Emoji />
 	</div>
 </template>
 

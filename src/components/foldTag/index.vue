@@ -30,7 +30,6 @@ async function calculateExpandButtonIndex() {
 		tags.push(expandKey);
 		tagRenderList.value = tags;
 		await nextTick();
-		console.log(left, mid, right, ulDom.value!.offsetHeight);
 		// 溢出
 		if (ulDom.value!.offsetHeight > lineHeight) {
 			right = mid;
