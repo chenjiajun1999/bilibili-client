@@ -38,7 +38,7 @@ onMounted(() => {});
 					</template>
 					<div class="h-[196px] px-[11px] overflow-auto">
 						<div v-for="(value, key) in item.data" :key="key">
-							<div class="inlink-block rounded cursor-pointer float-left hover:bg-gray-2" @click="$emit('addEmoji', value[0])">
+							<div class="inline-block rounded cursor-pointer float-left hover:bg-gray-2" @click="$emit('addEmoji', value[0])">
 								<div v-if="item.isLarge" class="w-[56px] h-[56px] m-1">
 									<img class="object-cover" :src="value[1]" />
 								</div>

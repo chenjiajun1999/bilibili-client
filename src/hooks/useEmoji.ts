@@ -2,6 +2,7 @@ import axios from "axios";
 import { EmojiOption } from "types/emoji";
 export default function useEmoji() {
 	const emojiMap = ref<Map<string, string>>(new Map());
+	const largeEmojiSet = ref<Set<string>>(new Set());
 	const emojiList = ref<Array<EmojiOption>>([
 		{
 			id: "face",
@@ -48,10 +49,13 @@ export default function useEmoji() {
 				data.forEach((value, key) => {
 					emoji.data.set(key, getUrl(`${emoji.id}/${value}`));
 					emojiMap.value.set(key, getUrl(`${emoji.id}/${value}`));
+					if (emoji.isLarge) {
+						largeEmojiSet.value.add(key);
+					}
 				});
 			});
 		});
 	});
 
-	return { emojiList, emojiMap };
+	return { emojiList, emojiMap, largeEmojiSet };
 }
