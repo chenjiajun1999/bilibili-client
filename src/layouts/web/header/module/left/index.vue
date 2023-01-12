@@ -11,7 +11,7 @@ defineProps({
 	<li class="entry-item">
 		<a class="entry-title" href="/">
 			<SvgIcon v-if="!isFixed" name="tv" class="entry-svg" />
-			<SvgIcon v-else name="logo" class="entry-svg entry-logo" width="140px" height="64px" />
+			<SvgIcon v-else name="logo" class="entry-svg entry-logo" :width="140" :height="64" />
 			<span>首页</span>
 		</a>
 	</li>
@@ -38,7 +38,7 @@ defineProps({
 	</li>
 	<li class="entry-item">
 		<a class="entry-title" href="#">
-			<SvgIcon name="download" class="entry-svg" width="16px" height="16px" />
+			<SvgIcon name="download" class="entry-svg" :width="16" :height="16" />
 			<span>下载客户端</span>
 		</a>
 	</li>

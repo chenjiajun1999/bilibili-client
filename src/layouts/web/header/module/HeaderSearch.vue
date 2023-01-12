@@ -34,7 +34,7 @@ function search(keyword?: any) {
 				@input="input"
 			/>
 			<div class="search-btn" @click="search">
-				<SvgIcon name="search" width="17px" height="17px" />
+				<SvgIcon name="search" :width="17" :height="17" />
 			</div>
 		</form>
 	</div>

@@ -81,7 +81,7 @@ onMounted(() => {
 		<div v-for="(tag, index) in tagRenderList" :key="index">
 			<li v-if="tag == expandKey" class="tag">
 				<div class="tag-expand" @click="onClick" :class="{ 'tag-expand__round': isExpanded }">
-					<SvgIcon name="arrow" width="10px" height="6px" />
+					<SvgIcon name="arrow" :width="10" :height="6" />
 				</div>
 			</li>
 			<li v-else-if="expandSet.has(getTagKey(tag.toString(), index))" class="tag" v-show="isExpanded">

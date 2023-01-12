@@ -169,7 +169,7 @@ onBeforeUnmount(() => {
 			<div class="swiper-button">
 				<el-button round ref="btnDom" @mouseover.enter="onPlayMoveover" @mouseout.enter="onPlayMoveout">
 					<div ref="iconDom" class="play-icon">
-						<SvgIcon name="play" class="mt-3.5 ml-3" width="18px" height="18px" />
+						<SvgIcon name="play" class="mt-3.5 ml-3" :width="18" :height="18" />
 					</div>
 					{{ posterList[nowIndex].name }}
 				</el-button>

@@ -21,6 +21,7 @@ module.exports = {
 				active: "var(--b-c-text-active)"
 			},
 			colors: {
+				"pink-0": "var(--b-c-pink-0)",
 				"blue-0": "var(--b-c-blue-0)",
 				"gray-0": "var(--b-c-gray-0)",
 				"gray-1": "var(--b-c-gray-1)",

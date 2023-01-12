@@ -24,15 +24,15 @@ defineProps({
 	<div class="relative flex h-6 text-tiny leading-[18px] items-center text-thirdly">
 		<div class="flex items-center">
 			<span class="inline-flex flex-shrink-0 mr-3 items-center">
-				<SvgIcon class="mr-1" name="view" width="20px" height="20px" />
+				<SvgIcon class="mr-1" name="view" :width="20" :height="20" />
 				{{ viewCount }}
 			</span>
 			<span class="inline-flex flex-shrink-0 mr-3 items-center">
-				<SvgIcon class="mr-1" name="danmaku" width="20px" height="20px" />
+				<SvgIcon class="mr-1" name="danmaku" :width="20" :height="20" />
 				{{ bulletCount }}
 			</span>
 			<span class="inline-flex flex-shrink-0 mr-3 items-center">
-				<SvgIcon class="mr-1" name="clock" width="20px" height="20px" />
+				<SvgIcon class="mr-1" name="clock" :width="20" :height="20" />
 				{{ time }}
 			</span>
 		</div>

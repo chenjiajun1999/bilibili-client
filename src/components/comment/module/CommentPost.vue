@@ -35,7 +35,7 @@ function onPostClick() {}
 	<div class="flex flex-col w-full">
 		<div class="flex w-full">
 			<div class="flex justify-center items-center w-20 h-[50px]">
-				<el-avatar :size="48" :src="avatarUrl">
+				<el-avatar :size="40" :src="avatarUrl">
 					<img src="@/assets/imgs/avatar.gif" />
 				</el-avatar>
 			</div>
@@ -58,11 +58,11 @@ function onPostClick() {}
 			<div class="flex justify-center items-center ml-20 mt-[5px]">
 				<Emoji :on-mousedown="onMousedown" @add-emoji="(val: string) => addText(val)">
 					<div class="expend-btn" @mousedown.enter="onMousedown" @click="onEmojiClick">
-						<SvgIcon name="emoji" width="16px" height="16px" />
+						<SvgIcon name="emoji" :width="16" :height="16" />
 					</div>
 				</Emoji>
 				<div class="expend-btn ml-1.5" @mousedown.enter="onMousedown" @click="onCallClick">
-					<SvgIcon name="call" width="16px" height="16px" />
+					<SvgIcon name="call" :width="16" :height="16" />
 				</div>
 			</div>
 		</div>
